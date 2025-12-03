@@ -7,11 +7,25 @@ public class Bateria_Ejercicio3_Metodos {
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("Introduce una cadena...");
-        String cadena = teclado.next();
+        String cadena = teclado.nextLine();
+        String resultado = imprimirCadena(cadena);
+
+        System.out.println(imprimirCadena(cadena));
+        System.out.println(contarVocales(imprimirCadena(cadena)));
 
     }
 
     public static String imprimirCadena (String cadena) {
-        return cadena.toUpperCase();
+        String resultado = cadena.toUpperCase();
+        return resultado;
+    }
+    public static int contarVocales (String resultado) {
+        int contador = 0;
+        for (int i = 0; i < resultado.length(); i++) {
+            if (resultado.charAt(i) == 'A' || resultado.charAt(i) == 'E' || resultado.charAt(i) == 'I' || resultado.charAt(i) == 'O' || resultado.charAt(i) == 'U' ) {
+                contador++;
+            }
+        }
+        return contador;
     }
 }
