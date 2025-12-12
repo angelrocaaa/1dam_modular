@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Mediano {
@@ -17,16 +18,21 @@ public class Mediano {
         else {
             // CÓDIGO PRINCIPAL AQUÍ
             // (incluyendo la lectura del caso de prueba)
-            int eventos = teclado.nextInt();
-            int vector[] = new int[eventos];
-            for (int i = 0; i < vector.length; i++) {
-                vector[i] = teclado.nextInt();
-                if (vector[i] == 0) {
+            int num_eventos = teclado.nextInt();
+            int eventos_ceros[] = new int[num_eventos];
+            int contador = 0;
 
+            for (int i = 0; i < eventos_ceros.length; i++) {
+                eventos_ceros[i] = teclado.nextInt();
+
+                if (eventos_ceros[i] == 0) {
+                    int mediana = (i + 1) / 2;
+                    int cliente = eventos_ceros[mediana];
+                    System.out.print(cliente + " ");
                 }
             }
+
             return true;
         }
     } // casoDePrueba
-
 }
