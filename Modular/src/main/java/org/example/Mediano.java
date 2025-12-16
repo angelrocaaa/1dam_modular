@@ -23,7 +23,8 @@ public class Mediano {
             System.out.println(clientes_actuales);
 
             if (num_ticket == 0) {
-                if (clientes_actuales == 0) {
+                if (clientes_actuales == 0)
+                {
                     System.out.print("ECSA ");
                 } else {
                     int mediana = (clientes_actuales - 1) / 2;
