@@ -16,18 +16,22 @@ public class Modo3 {
         if (!teclado.hasNext())
             return false;
         else {
-            // CÓDIGO PRINCIPAL AQUÍ
-            // (incluyendo la lectura del caso de prueba)
-            int toros = teclado.nextInt();
-            int velocidad_corredor = 0;
-            for (int i = 0; i < toros; i++) {
-                int velocidad_toro = teclado.nextInt();
-                if (velocidad_toro > velocidad_corredor) {
-                    velocidad_corredor = velocidad_toro;
+            int num_trenes = teclado.nextInt();
+            int convoys[] = new int[num_trenes];
+            int contador = 0;
+
+            for (int i = 0; i < convoys.length; i++) {
+                convoys[i] = teclado.nextInt();
+                for (int j = 0; j < convoys.length; j++) {
+                    if (i != convoys.length - 1) {
+                        if (convoys[j] > convoys[j +1]) {
+                            convoys[j +1] = convoys[j +1] -1;
+                            contador++;
+                            System.out.println(contador);
+                        }
+                    }
                 }
             }
-            System.out.println(velocidad_corredor);
-            teclado.nextLine();
             return true;
         }
     } // casoDePrueba

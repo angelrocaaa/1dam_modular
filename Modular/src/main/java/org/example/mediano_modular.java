@@ -11,15 +11,31 @@ public class mediano_modular {
     }
 
     public static boolean casoDePrueba() {
-        if (!teclado.hasNextInt())
-            return false;
-
-        int num_eventos = teclado.nextInt();
-        int[] clientes = new int[num_eventos];
+        boolean control = true;
+        int num_eventos = 0;
+        int[] clientes;
         int clientes_actuales = 0;
 
+        do {
+            System.out.println("Introduce el número de clientes de la carniceria...");
+            if (!teclado.hasNextInt())
+                return false;
+            num_eventos = teclado.nextInt();
+            if (num_eventos > 1) {
+                control=false;
+            }
+            clientes = new int[num_eventos];
+        } while(control==true);
+
+        System.out.println("Introduce el número del ticket de cada cliente y introduce 0 cuando el carninecero pregunte... ");
         for (int i = 0; i < num_eventos; i++) {
             int num_ticket = teclado.nextInt();
+            if (num_ticket < 0) {
+                System.out.println("No hay tickets negativos. Introduce de nuevo el número del ticket de cada cliente e introduce 0 cuando el carninecero pregunte... ");
+                i--;
+                continue;
+            }
+            System.out.println("Clientes Atendidos: ");
             clientes_actuales = procesarEvento(clientes, clientes_actuales, num_ticket);
         }
 
