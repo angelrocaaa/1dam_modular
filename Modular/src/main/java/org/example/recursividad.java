@@ -7,8 +7,6 @@ public class recursividad {
 
     public static void main() {
         menu_opciones();
-
-
     }
 
     public static void menu_opciones(){
